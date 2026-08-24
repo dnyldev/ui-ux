@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #0f1014;
+  --color-surface: #14161b;
+  --color-raised: #1a1d24;
+  --color-overlay: #23262e;
+  --color-line: rgb(255 255 255 / 0.07);
+  --color-line-strong: rgb(255 255 255 / 0.16);
+  --color-ink: #f2f4f7;
+  --color-ink-2: #b8bdc8;
+  --color-ink-3: #7e8490;
+  --color-accent: #f2a93b;
+  --color-accent-soft: #ffc46b;
+  --color-teal: #45c4b0;
+  --color-violet: #a78bfa;
+  --color-red: #f2706d;
+  --color-green: #4cc9a6;
+  --font-disp: "Inter", "Vazirmatn", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Inter", "Vazirmatn", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  @apply bg-bg text-ink font-body antialiased;
+}
+
+::selection {
+  background: rgb(242 169 59 / 0.32);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(255 255 255 / 0.12);
+  border-radius: 8px;
+  border: 3px solid #0f1014;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ---- motion primitives ---- */
+@keyframes eq-bounce {
+  0%,
+  100% {
+    transform: scaleY(0.32);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+.eq-bar {
+  transform-origin: bottom;
+  animation: eq-bounce 0.9s ease-in-out infinite;
+}
+
+@keyframes ping-soft {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  70%,
+  100% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
