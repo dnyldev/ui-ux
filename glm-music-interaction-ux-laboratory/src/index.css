@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+@theme {
+  --color-canvas: #08080a;
+  --color-surface: #0d0d10;
+  --color-panel: #131318;
+  --color-raised: #1a1a20;
+  --color-hi: #232329;
+  --color-line: #ffffff10;
+  --color-line2: #ffffff1c;
+  --color-fg: #f2f2f5;
+  --color-muted: #9a9aa6;
+  --color-faint: #61616b;
+
+  --color-accent: #34e29a;
+  --color-accent2: #2bbf86;
+  --color-amber: #f4b14a;
+  --color-rose: #f0657e;
+  --color-azure: #5aa2ff;
+  --color-violet: #a98bff;
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+  html {
+    color-scheme: dark;
+  }
+  body {
+    margin: 0;
+    background:
+      radial-gradient(120% 90% at 50% -10%, #141419 0%, transparent 60%),
+      var(--color-canvas);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior: none;
+  }
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+  button {
+    font-family: inherit;
+  }
+  input {
+    font-family: inherit;
+  }
+  ::selection {
+    background: color-mix(in oklab, var(--color-accent) 32%, transparent);
+    color: #04130d;
+  }
+}
+
+@layer utilities {
+  .grab {
+    touch-action: none;
+    cursor: grab;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  .grab:active {
+    cursor: grabbing;
+  }
+  .tap {
+    touch-action: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  .tnum {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum" 1, "cv01" 1;
+  }
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .safe-b {
+    padding-bottom: max(env(safe-area-inset-bottom), 0px);
+  }
+}
+
+::-webkit-scrollbar {
+  width: 11px;
+  height: 11px;
+}
+::-webkit-scrollbar-thumb {
+  background: #ffffff18;
+  border-radius: 999px;
+  border: 3px solid transparent;
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff2b;
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
